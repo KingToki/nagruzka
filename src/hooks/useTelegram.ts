@@ -4,7 +4,7 @@ export const useTelegram = () => {
   const [webApp, setWebApp] = useState<any>(null);
 
   useEffect(() => {
-    // @ts-ignore — Telegram WebApp глобальный объект
+    // @ts-ignore — глобальный Telegram объект
     const app = window.Telegram?.WebApp;
 
     if (app) {
