@@ -1,0 +1,10 @@
+{
+  "name": "Financial Dashboard",
+  "short_name": "FinanceApp",
+  "lang": "uk",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f8cff",
+  "icons": []
+}
