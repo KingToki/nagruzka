@@ -1,24 +1,16 @@
-import { useEffect, useState } from 'react';
-import { WebApp } from '@telegram-apps/sdk';
+import { useEffect, useState } from "react";
 
 export const useTelegram = () => {
-  const [webApp, setWebApp] = useState<WebApp | null>(null);
+  const [webApp, setWebApp] = useState<any>(null);
 
   useEffect(() => {
-    const initWebApp = async () => {
-      try {
-        const { WebApp } = await import('@telegram-apps/sdk');
-        const app = WebApp.initialize();
-        setWebApp(app);
-        
-        // Expand the web app to full screen
-        app.expand();
-      } catch (error) {
-        console.error('Failed to initialize Telegram WebApp:', error);
-      }
-    };
+    // @ts-ignore — Telegram WebApp глобальный объект
+    const app = window.Telegram?.WebApp;
 
-    initWebApp();
+    if (app) {
+      app.expand();
+      setWebApp(app);
+    }
   }, []);
 
   return webApp;
